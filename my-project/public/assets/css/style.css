@@ -6,6 +6,9 @@ body header .logo {
 	display: flex;
 	align-items: center;
 }
+body header .logo img{
+	max-width: 80px;
+}
 
 body header .logo .imagen {
 	padding: 20px;
@@ -36,18 +39,70 @@ body .menu ul {
 h1 {
     color: white !important;
 }
+main {
+	background-color: rgba(0,0,0,0.6);
+	padding: 30px;
+}
+.descripcion {
+	background-color: white;
+	padding: 15px;
+}
+main .boton{
+	background-color: black;
+	padding: 10px;
+}
 
+main .boton .btn{
+	background-color: black;
+	width: 100%;
+}
+main .boton a{
+	color: orangered;
+}
+
+main .boton:hover{
+	background-color: black;
+}
+main .boton:hover a{
+	color: orange;
+}
 
 
 /*	INDEX */
 .descripcion h2 {
 	text-align: center;
-	font-size: 4rem;
+	font-size: 2rem;
 	width: 60%;
 	margin: 50px auto;
+	text-transform: uppercase;
+	line-height: 2.2rem;
 }
 
 thead tr th {
 	padding: 10px;
 	background-color: lightgray;
+}
+
+/*INDIVIDUAL*/
+.cont {
+	width: 100%;
+	display: flex;
+}
+.cont .img{
+	width: 40%;
+	flex-direction: column;
+	text-align: center;
+}
+.cont .img img{
+	padding: 15px 0;
+}
+.cont .txt {
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 20px;
+}
+.img img{
+	width: 100%;
 }

@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('/',[PagesController::class,'inicio'])->name('index');
+Route::get('novedades',[PagesController::class,'novedades'])->name('novedades');
+Route::get('populares',[PagesController::class,'populares'])->name('populares');
 Route::get('registro',[PagesController::class,'registro'])->name('chollo.registro');
 Route::post('crear',[PagesController::class,'crear'])->name('chollo.crear');
 Route::get('editar/{id?}',[PagesController::class, 'editar'])->name('chollo.editar');

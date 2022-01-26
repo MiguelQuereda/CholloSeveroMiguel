@@ -2,19 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CholloPrueba;
-use App\Models\prueba;
+use App\Models\CholloSevero;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function inicio(){
-        $chollos = prueba::all();
+        $chollos = CholloSevero::all();
         return view('index', compact('chollos'));
     }
 
+    public function novedades(){
+        $chollos = CholloSevero::orderBy('id', 'desc')->get();
+        return view('index', compact('chollos'));
+    }
+    public function populares(){
+        $chollos = CholloSevero::orderBy('puntuacion', 'desc')->get();
+        return view('index', compact('chollos'));
+    }
+
+
     public function editar($id) {
-        $chollo = prueba::findOrFail($id);
+        $chollo = CholloSevero::findOrFail($id);
       
         return view('chollo.editar', compact('chollo'));
       }
@@ -23,21 +32,36 @@ class PagesController extends Controller
     }
       public function crear(Request $request){
           
-          $chollo = new prueba();
+          $chollo = new CholloSevero();
           $request -> validate([
             'nombre' => 'required',
             'descripcion' => 'required',
-            'imagen' => 'mimes:jpg,jpeg,png',
-            'imgName'=> 'required'
+            'url'=>'required',
+            'categoria' => 'required',
+            'puntuacion' => 'required',
+            'precio'=>'required',
+            'precio_descuento' => 'required',
+            'disponible' => 'required',
           ]);
-          $fechaActual = date('d-m-Y');
-         // $cadena =str_replace(' ', '', $fechaActual);
-        $chollo -> nombre = $request ->nombre;
-        $chollo -> descripcion = $request ->descripcion;
+        $chollo -> nombre = $request -> nombre;
+        $chollo -> descripcion = $request -> descripcion;
+        $chollo -> url = $request -> url;
+        $chollo -> categoria = $request -> categoria;
+        $chollo -> puntuacion = $request -> puntuacion;
+        $chollo -> precio = $request -> precio;
+        $chollo -> precio_descuento = $request -> precio_descuento;
+        $chollo->imagen = "todavíano";
+        if($chollo -> disponible == "true"){
+            $respuesta = true;
+        }else{
+            $respuesta = false;
+        }
+        $chollo -> disponible = $respuesta;
+      
+        $chollo -> save();
         if($request->hasFile("imagen")){
-            $nomImg = $request->imgName;
             $imagen = $request->file("imagen");
-            $nombreimagen =  /*$cadena.*/$nomImg.".".$imagen->guessExtension();
+            $nombreimagen =  $chollo->id."chollosevero".".".$imagen->guessExtension();
             $ruta = public_path("assets/img/");
             copy($imagen->getRealPath(),$ruta.$nombreimagen);
             $chollo->imagen = $nombreimagen;            
@@ -45,33 +69,59 @@ class PagesController extends Controller
         }
         $chollo->save();
         
-        return back() -> with('mensaje','Nota agregada exitósamente');
+        return back() -> with('mensaje','Chollo agregado exitósamente');
       }
     public function actualizar(Request $request, $id){
         $request -> validate([
             'nombre' => 'required',
-            'descripcion' => 'required'
+            'descripcion' => 'required',
+            'url'=>'required',
+            'categoria' => 'required',
+            'puntuacion' => 'required',
+            'precio'=>'required',
+            'precio_descuento' => 'required',
+            'disponible' => 'required',
         ]);
       
-        $notaActualizar = prueba::findOrFail($id);
+        $cholloActualizar = CholloSevero::findOrFail($id);
       
-        $notaActualizar -> nombre = $request -> nombre;
-        $notaActualizar -> descripcion = $request -> descripcion;
+        $cholloActualizar -> nombre = $request -> nombre;
+        $cholloActualizar -> descripcion = $request -> descripcion;
+        $cholloActualizar -> url = $request -> url;
+        $cholloActualizar -> categoria = $request -> categoria;
+        $cholloActualizar -> puntuacion = $request -> puntuacion;
+        $cholloActualizar -> precio = $request -> precio;
+        $cholloActualizar -> precio_descuento = $request -> precio_descuento;
+        if($cholloActualizar -> disponible == "true"){
+            $respuesta = true;
+        }else{
+            $respuesta = false;
+        }
+        $cholloActualizar -> disponible = $respuesta;
       
-        $notaActualizar -> save();
+        $cholloActualizar -> save();
+        if($request->hasFile("imagen")){
+            $imagen = $request->file("imagen");
+            $nombreimagen =  $cholloActualizar->id."chollosevero".".".$imagen->guessExtension();
+            $ruta = public_path("assets/img/");
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+            $cholloActualizar->imagen = $nombreimagen;            
+            
+        }
+        $cholloActualizar->save();
       
         return back() -> with('mensaje', 'Chollo actualizado');
     }
 
     public function eliminar($id) {
-        $cholloEliminar = prueba::findOrFail($id);
+        $cholloEliminar = CholloSevero::findOrFail($id);
         $cholloEliminar -> delete();
       
         return back() -> with('mensaje', 'Nota Eliminada');
     }
 
     public function individual($id){
-        $chollo = prueba::findorFail($id);
+        $chollo = CholloSevero::findorFail($id);
         return view('chollo.individual', compact('chollo'));
     }
 }

@@ -28,4 +28,8 @@
     @endforeach
 </tbody>
 </table>
+
+    <a href="{{ route('chollo.registro') }}" class=".text-white"><button type="button" class="btn btn-primary .btn-block">
+        <div class="boton">Crear un nuevo chollo</button></a>
+</div>
 @endsection

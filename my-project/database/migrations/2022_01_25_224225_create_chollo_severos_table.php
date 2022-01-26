@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePruebasTable extends Migration
+class CreateCholloSeverosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,19 @@ class CreatePruebasTable extends Migration
      */
     public function up()
     {
-        Schema::create('pruebas', function (Blueprint $table) {
+        Schema::create('chollo_severos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('nombre');
             $table->string('descripcion');
-            $table->string('imagen');
+            $table->string('categoria');
+            $table->string('url');
+            $table->decimal('puntuacion', 8);
+            $table->decimal('precio', 8, 2);
+            $table->decimal('precio_descuento', 8, 2);
+            $table->boolean('disponible');
         });
-    }//INSERT INTO pruebas(nombre,descripcion) VALUES ('nombre','pruebas');
+    }
 
     /**
      * Reverse the migrations.
@@ -29,6 +34,6 @@ class CreatePruebasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pruebas');
+        Schema::dropIfExists('chollo_severos');
     }
 }

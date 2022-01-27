@@ -6,30 +6,31 @@
     <h2>Mira nuestros chollos, disfruta y comparte</h2>
 @endsection
 @section('total')
-<table>
-    <thead>
-    <tr><th>Nombres</th><th>Descripciones</th></tr>
-</thead>
-<tbody>
+
+<h2>Lista de chollos</h2>
+<div class="container contenechollos">
     @foreach ($chollos as $chollo)
-    <tr>
-        <td><a href="{{ route('chollo.individual', $chollo->id) }}">  {{$chollo->nombre}}</a></td>
-        <td>{{$chollo->descripcion}}</td>
-        <td><a href="{{ route('chollo.editar', $chollo->id) }}" class="btn btn-warning btn-sm">
+    <div class="container chollito">
+        <div class="imagen">
+            <img src="{{asset('assets/img/'.$chollo->imagen)}}">
+        </div>
+        <div class="texto">
+        <h4><a href="{{ route('chollo.individual', $chollo->id) }}">{{$chollo->nombre}}</a></h4>  
+        <p>{{$chollo->precio_descuento}}</p>
+        <a href="{{ route('chollo.editar', $chollo->id) }}" class="btn btn-warning btn-sm">
             Editar
-          </a></td>
-          <td><form action="{{ route('chollo.eliminar', $chollo->id) }}" method="POST" class="d-inline">
+          </a>
+          <form action="{{ route('chollo.eliminar', $chollo->id) }}" method="POST" class="d-inline">
             @method('DELETE')
             @csrf
           
             <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-          </form></td>
-    </tr>
-    @endforeach
-</tbody>
-</table>
+          </form></div>
+        </div>
+        @endforeach
 
-    <a href="{{ route('chollo.registro') }}" class=".text-white"><button type="button" class="btn btn-primary .btn-block">
-        <div class="boton">Crear un nuevo chollo</button></a>
+    </div>
+        <div class="boton"><a href="{{ route('chollo.registro') }}" class=".text-white">
+            Crear un nuevo chollo</a>
 </div>
 @endsection

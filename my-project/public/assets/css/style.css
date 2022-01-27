@@ -47,11 +47,12 @@ main {
 	background-color: white;
 	padding: 15px;
 }
-main .boton{
+main .boton {
 	background-color: black;
 	padding: 10px;
+	margin-top: 30px;
+	text-align: center;
 }
-
 main .boton .btn{
 	background-color: black;
 	width: 100%;
@@ -69,6 +70,7 @@ main .boton:hover a{
 
 
 /*	INDEX */
+
 .descripcion h2 {
 	text-align: center;
 	font-size: 2rem;
@@ -78,9 +80,39 @@ main .boton:hover a{
 	line-height: 2.2rem;
 }
 
-thead tr th {
-	padding: 10px;
-	background-color: lightgray;
+.total {
+	background-color: white;
+	padding: 10px 40px;
+}
+.total h2 {
+	text-align: center;
+	font-weight: bold;
+	color: black;
+	text-transform: uppercase;
+}
+.contenechollos {
+	display: flex;
+	flex-wrap: nowrap;
+	margin: 50px 0;
+}
+
+.chollito {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 31%;
+	flex-direction: column;
+	text-align: center;
+	border: 2px solid black;
+	padding: 40px;
+}
+.chollito .imagen img {
+	width: 80%;
+	margin: 20px 0;
+}
+
+.chollito .texto h4 a {
+	color: black;
+	font-weight: bold;
 }
 
 /*INDIVIDUAL*/

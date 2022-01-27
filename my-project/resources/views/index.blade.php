@@ -16,7 +16,7 @@
         </div>
         <div class="texto">
         <h4><a href="{{ route('chollo.individual', $chollo->id) }}">{{$chollo->nombre}}</a></h4>  
-        <p>{{$chollo->precio_descuento}}</p>
+        <p>{{$chollo->precio_descuento}} €</p>
         <a href="{{ route('chollo.editar', $chollo->id) }}" class="btn btn-warning btn-sm">
             Editar
           </a>
@@ -29,6 +29,9 @@
         </div>
         @endforeach
 
+    </div>
+    <div class="manejadores">
+    {{ $chollos->links()}}
     </div>
         <div class="boton"><a href="{{ route('chollo.registro') }}" class=".text-white">
             Crear un nuevo chollo</a>

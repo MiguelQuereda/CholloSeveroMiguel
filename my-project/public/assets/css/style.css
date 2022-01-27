@@ -138,3 +138,43 @@ main .boton:hover a{
 .img img{
 	width: 100%;
 }
+
+
+
+/*		FOOTER 		*/
+
+footer{
+	min-height: 200px;
+	position: relative;
+}
+footer i {
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+	color: white;
+	font-weight: bold;
+}
+footer {
+    background: linear-gradient(211deg, #000000, #fd9012);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 31s ease infinite;
+    -moz-animation: AnimationName 31s ease infinite;
+    animation: AnimationName 31s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 79%}
+    50%{background-position:100% 22%}
+    100%{background-position:0% 79%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 79%}
+    50%{background-position:100% 22%}
+    100%{background-position:0% 79%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 79%}
+    50%{background-position:100% 22%}
+    100%{background-position:0% 79%}
+}

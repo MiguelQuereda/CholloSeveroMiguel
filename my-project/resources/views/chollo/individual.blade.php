@@ -14,9 +14,13 @@
            @endif
         </div>
         <div class="col-6 txt">
-           <div class="col-12 puntuacion"><h3>{{$chollo->puntuacion}}</h3></div>
+           <div class="col-12 puntuacion"><h3> + {{$chollo->puntuacion}}º</h3></div>
            <div class="col-12 nombre"><h2>{{$chollo->nombre}}</h2></div>
            <div class="col-12 descripcion"><p>{{$chollo->descripcion}}</p></div>
+
+           <div class="precio">
+            <p>{{$chollo->precio_descuento}} €</p>
+           </div>
            
         </div>
     </div>

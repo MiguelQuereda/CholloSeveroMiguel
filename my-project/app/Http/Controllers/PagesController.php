@@ -8,13 +8,17 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function inicio(){
-        $chollos = CholloSevero::all();
+        //$chollos = CholloSevero::all();
+        $chollos= CholloSevero::paginate();
         return view('index', compact('chollos'));
     }
 
+
     public function novedades(){
+        $chollos = CholloSevero::all();
         $chollos = CholloSevero::orderBy('id', 'desc')->get();
         return view('index', compact('chollos'));
+        
     }
     public function populares(){
         $chollos = CholloSevero::orderBy('puntuacion', 'desc')->get();
@@ -61,11 +65,13 @@ class PagesController extends Controller
         $chollo -> save();
         if($request->hasFile("imagen")){
             $imagen = $request->file("imagen");
-            $nombreimagen =  $chollo->id."chollosevero".".".$imagen->guessExtension();
+            $nombreimagen =  $chollo->id."chollosevero".$imagen->guessExtension();
             $ruta = public_path("assets/img/");
             copy($imagen->getRealPath(),$ruta.$nombreimagen);
             $chollo->imagen = $nombreimagen;            
             
+        }else{
+            $chollo->imagen = "cholloImgDefault.png";
         }
         $chollo->save();
         

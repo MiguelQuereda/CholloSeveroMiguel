@@ -113,7 +113,7 @@ class="form-control mb-2"
 value=""
 required
 >
-  <input type="file" name="imagen" required>
+  <input type="file" name="imagen">
 <br>
   <button type="submit">Subir un nuevo chollo</button>
 </form>

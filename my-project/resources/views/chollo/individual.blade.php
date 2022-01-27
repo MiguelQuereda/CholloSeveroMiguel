@@ -6,7 +6,7 @@
 <section class="container">
     <div class="row cont">
         <div class="img col-6">
-            <img class="" src="{{asset('assets/img/'.$chollo->imagen)}}">
+            <img src="{{asset('assets/img/'.$chollo->imagen)}}">
             @if ($chollo->disponible == 0)
            <div class="col-12 btn btn-primary btn-sm boton"><a href="{{$chollo->url}}"> Ir al chollo</a></div>
            @else

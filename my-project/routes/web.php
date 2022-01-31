@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::put('editar/{id}', [ PagesController::class, 'actualizar' ]) -> name('cho
 Route::delete('eliminar/{id}', [ PagesController::class, 'eliminar' ]) -> name('chollo.eliminar'); //
 Route::get('individual/{id}',[PagesController::class,'individual']) ->name('chollo.individual');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

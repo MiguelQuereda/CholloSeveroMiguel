@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CholloSevero;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -16,7 +17,7 @@ class PagesController extends Controller
 
     public function novedades(){
         $chollos = CholloSevero::all();
-        $chollos = CholloSevero::orderBy('id', 'desc')->get();
+        //$chollos = CholloSevero::orderBy('id', 'desc')->get();
         return view('index', compact('chollos'));
         
     }
@@ -130,4 +131,15 @@ class PagesController extends Controller
         $chollo = CholloSevero::findorFail($id);
         return view('chollo.individual', compact('chollo'));
     }
+
+    public function devolverBoolean($valor){
+
+        if($valor == "true"){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
+
+

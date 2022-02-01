@@ -38,7 +38,7 @@
         
     </main>
     <footer>
-        <i>©CholloSevero 2022</i>
+        <i>©CholloSevero <?= date("Y"); ?></i>
     </footer>
 </body>
 </html>

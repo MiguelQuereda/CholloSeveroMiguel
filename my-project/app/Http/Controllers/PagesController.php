@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CholloSevero;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -16,7 +17,7 @@ class PagesController extends Controller
 
     public function novedades(){
         $chollos = CholloSevero::all();
-        $chollos = CholloSevero::orderBy('id', 'desc')->get();
+        //$chollos = CholloSevero::orderBy('id', 'desc')->get();
         return view('index', compact('chollos'));
         
     }
@@ -26,11 +27,11 @@ class PagesController extends Controller
     }
 
 
-    public function editar($id) {
+    /*public function editar($id) {
         $chollo = CholloSevero::findOrFail($id);
       
         return view('chollo.editar', compact('chollo'));
-      }
+      }*/
     public function registro(){
         return view('chollo.registro');
     }
@@ -65,7 +66,7 @@ class PagesController extends Controller
         $chollo -> save();
         if($request->hasFile("imagen")){
             $imagen = $request->file("imagen");
-            $nombreimagen =  $chollo->id."chollosevero".$imagen->guessExtension();
+            $nombreimagen =  $chollo->id."chollosevero".".".$imagen->guessExtension();
             $ruta = public_path("assets/img/");
             copy($imagen->getRealPath(),$ruta.$nombreimagen);
             $chollo->imagen = $nombreimagen;            
@@ -77,6 +78,7 @@ class PagesController extends Controller
         
         return back() -> with('mensaje','Chollo agregado exitósamente');
       }
+      /*
     public function actualizar(Request $request, $id){
         $request -> validate([
             'nombre' => 'required',
@@ -124,10 +126,21 @@ class PagesController extends Controller
         $cholloEliminar -> delete();
       
         return back() -> with('mensaje', 'Nota Eliminada');
-    }
+    }*/
 
     public function individual($id){
         $chollo = CholloSevero::findorFail($id);
         return view('chollo.individual', compact('chollo'));
     }
+
+    public function devolverBoolean($valor){
+
+        if($valor == "true"){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
+
+

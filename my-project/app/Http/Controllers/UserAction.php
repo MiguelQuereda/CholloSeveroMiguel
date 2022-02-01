@@ -5,27 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\CholloSevero;
 use Illuminate\Http\Request;
 
-class PagesController extends Controller
+class UserAction extends Controller
 {
-    public function inicio(){
-        //$chollos = CholloSevero::all();
-        $chollos= CholloSevero::paginate();
-        return view('index', compact('chollos'));
+    //---------------------------------------------------
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
-
-
-    public function novedades(){
-        $chollos = CholloSevero::all();
-        $chollos = CholloSevero::orderBy('id', 'desc')->get();
-        return view('index', compact('chollos'));
-        
-    }
-    public function populares(){
-        $chollos = CholloSevero::orderBy('puntuacion', 'desc')->get();
-        return view('index', compact('chollos'));
-    }
-
-/*
+    /******************** ESTO LO QUE HACE ES REDIRIGIRTE A LA PAGINA DE LOGEARTE SI ENTRAS A ALGUNA DE LAS PÁGINAS EN ESTE CONTROLLER */
+    
     public function editar($id) {
         $chollo = CholloSevero::findOrFail($id);
       
@@ -129,5 +117,5 @@ class PagesController extends Controller
     public function individual($id){
         $chollo = CholloSevero::findorFail($id);
         return view('chollo.individual', compact('chollo'));
-    }*/
+    }
 }

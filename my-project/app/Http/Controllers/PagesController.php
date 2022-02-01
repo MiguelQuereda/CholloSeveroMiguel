@@ -27,11 +27,11 @@ class PagesController extends Controller
     }
 
 
-    public function editar($id) {
+    /*public function editar($id) {
         $chollo = CholloSevero::findOrFail($id);
       
         return view('chollo.editar', compact('chollo'));
-      }
+      }*/
     public function registro(){
         return view('chollo.registro');
     }
@@ -78,6 +78,7 @@ class PagesController extends Controller
         
         return back() -> with('mensaje','Chollo agregado exitósamente');
       }
+      /*
     public function actualizar(Request $request, $id){
         $request -> validate([
             'nombre' => 'required',
@@ -125,7 +126,7 @@ class PagesController extends Controller
         $cholloEliminar -> delete();
       
         return back() -> with('mensaje', 'Nota Eliminada');
-    }
+    }*/
 
     public function individual($id){
         $chollo = CholloSevero::findorFail($id);

@@ -43,6 +43,11 @@ main {
 	background-color: rgba(0,0,0,0.6);
 	padding: 30px;
 }
+
+main .login{
+	background-color: white;
+	padding: 20px;
+}
 .descripcion {
 	background-color: white;
 	padding: 15px;

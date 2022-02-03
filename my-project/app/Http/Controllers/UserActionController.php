@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CholloSevero;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserActionController extends Controller
 {
@@ -113,5 +114,16 @@ class UserActionController extends Controller
       
         return back() -> with('mensaje', 'Nota Eliminada');
     }
+
+    public function logout(Request $request)
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+}
 
 }

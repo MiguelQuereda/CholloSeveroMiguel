@@ -4,6 +4,7 @@
 @endsection
 @section('desc')
 <section class="container">
+    
     <div class="row cont">
         <div class="img col-6">
             <img src="{{asset('assets/img/'.$chollo->imagen)}}">

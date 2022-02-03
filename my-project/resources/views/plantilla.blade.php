@@ -13,6 +13,20 @@
         <div class="logo">
             <div class="imagen"><img src="{{asset('assets/img/logotipo.png')}}" alt="logoCholloSevero"></div>
             <div class="titulo"><h1>Bienvenido a CholloSevero ||@yield('titulo')</h1></div>
+            <div class="Usuario">
+            @if (Auth::guest()) 
+                {{-- Si no estas logeado saldrá esto--}}
+                <form action="/auth/login" method="GET">
+                    <button type="submit">Log in</button>
+                </form>                   
+            @else
+                {{-- Si estas logeado saldrá esto--}}
+                {{ Auth::user()->name }}
+                <form action="/auth/logout" method="GET">
+                    <button type="submit">Log Out</button>
+                </form>    
+            @endif
+            </div>
         </div>
         <nav class="menu">
             <ul>

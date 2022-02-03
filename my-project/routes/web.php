@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UserActionController;
 use Illuminate\Support\Facades\Auth;
@@ -39,3 +40,4 @@ Route::delete('eliminar/{id}', [ UserActionController::class, 'eliminar' ]) -> n
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/auth/logout', [UserActionController::class, 'logout'])->name('logout');

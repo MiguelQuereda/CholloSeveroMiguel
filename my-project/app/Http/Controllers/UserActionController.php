@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CholloSevero;
 use Illuminate\Http\Request;
 
-class UserAction extends Controller
+class UserActionController extends Controller
 {
     //---------------------------------------------------
     public function __construct()
@@ -114,8 +114,4 @@ class UserAction extends Controller
         return back() -> with('mensaje', 'Nota Eliminada');
     }
 
-    public function individual($id){
-        $chollo = CholloSevero::findorFail($id);
-        return view('chollo.individual', compact('chollo'));
-    }
 }

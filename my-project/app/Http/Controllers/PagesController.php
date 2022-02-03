@@ -125,9 +125,13 @@ class PagesController extends Controller
       
         return back() -> with('mensaje', 'Nota Eliminada');
     }
-
+*/
     public function individual($id){
         $chollo = CholloSevero::findorFail($id);
         return view('chollo.individual', compact('chollo'));
-    }*/
+    }
+
+    public function login(){
+        return view('auth/login');
+    }
 }

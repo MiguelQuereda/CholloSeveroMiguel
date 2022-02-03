@@ -34,6 +34,9 @@
         <div class="total">
             @yield('total')
         </div>
+        <div class="login">
+            @yield('login')
+        </div>
 
         
     </main>

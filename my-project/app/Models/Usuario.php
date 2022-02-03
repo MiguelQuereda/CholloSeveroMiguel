@@ -9,8 +9,4 @@ class Usuario extends Model
 {
     use HasFactory;
 
-    public function telefono()
-  {
-      return $this -> hasOne(Telefono::class);
-  }
 }

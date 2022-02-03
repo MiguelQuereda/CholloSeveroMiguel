@@ -24,6 +24,9 @@ class CreateCholloSeverosTable extends Migration
             $table->decimal('precio', 8, 2);
             $table->decimal('precio_descuento', 8, 2);
             $table->boolean('disponible');
+            $table->string('autor');
+            
+
         });
     }
 

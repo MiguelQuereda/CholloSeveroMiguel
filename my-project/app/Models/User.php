@@ -10,12 +10,12 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    use HasApiTokens, HasFactory, Notifiable;
 
-    public function telefono()
+        /*public function telefono()
     {
         return $this -> hasOne(Telefono::class);
-    }
-    use HasApiTokens, HasFactory, Notifiable;
+    }*/
 
     /**
      * The attributes that are mass assignable.
@@ -46,4 +46,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function CholloSevero()
+    {
+        return $this -> hasMany(CholloSevero::class);
+        /**
+         * $comentarios = Post::find(id?) -> comentarios;
+
+         *   foreach ($comentarios as $comentario) {
+         *       // Lo que sea que hagamos con esos datos
+         *   }
+         */
+    }
 }

@@ -9,5 +9,7 @@ class Categoria extends Model
 {
     use HasFactory;
 
-    
+    public function chollosevero(){
+        return $this->belongsToMany(CholloSevero::class);
+    }
 }

@@ -16,11 +16,9 @@
             <div class="Usuario">
             @if (Auth::guest()) 
                 {{-- Si no estas logeado saldrá esto--}}
-                <form action="/auth/login" method="GET">
-                    <button type="submit">Log in</button>
-                </form>                   
+                    <a href={{route('login')}}><button type="submit">Log in</button></a>
             @else
-                {{-- Si estas logeado saldrá esto--}}
+                {{-- Si estas logeado saldrá esto   Me refiero, para ir a la página de login--}}
                 {{ Auth::user()->name }}
                 <form action="/auth/logout" method="GET">
                     <button type="submit">Log Out</button>

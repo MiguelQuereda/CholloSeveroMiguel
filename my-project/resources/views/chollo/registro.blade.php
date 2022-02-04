@@ -59,6 +59,14 @@
       autofocus
       required
   >
+
+  <input
+      type="hidden"
+      name="id_usuario"
+      class="form-control mb-2"
+      value="{{ Auth::user()->id}}"
+      required
+  >
   <input
       type="text"
       name="descripcion"
@@ -84,6 +92,8 @@
       value=""
       required
   >
+
+  
   <select name="disponible">
     <!-- Opciones de la lista -->
     <option value="true" selected>Disponible</option>
@@ -104,7 +114,7 @@
   class="form-control mb-2"
   value=""
   required
->
+  >
 <input
 type="number"
 name="precio_descuento"

@@ -13,6 +13,8 @@
     <div class="container chollito">
         <div class="imagen">
             <img src="{{asset('assets/img/'.$chollo->imagen)}}">
+            {{-- <p></p> --}}
+            {{-- Aquí lo que hacemos es accedemos al objeto chollo, llamamos a la fucnion categorias y cogemos el campo categoria --}}
         </div>
         <div class="texto">
         <h4><a href="{{ route('chollo.individual', $chollo->id) }}">{{$chollo->nombre}}</a></h4>  
@@ -31,7 +33,7 @@
 
     </div>
     <div class="manejadores">
-    {{ $chollos->links()}}
+    {{-- {{ $chollos->links()}} --}}
     </div>
         <div class="boton"><a href="{{ route('chollo.registro') }}" class=".text-white">
             Crear un nuevo chollo</a>

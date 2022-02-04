@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CholloSevero extends Model
 {
     use HasFactory;
+    
 
     public function usuario()
     {

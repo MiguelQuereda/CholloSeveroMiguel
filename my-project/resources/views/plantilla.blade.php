@@ -18,7 +18,7 @@
                 {{-- Si no estas logeado saldrá esto--}}
                     <a href={{route('login')}}><button type="submit">Log in</button></a>
             @else
-                {{-- Si estas logeado saldrá esto   Me refiero, para ir a la página de login--}}
+                {{-- Si estas logeado saldrá esto--}}
                 {{ Auth::user()->name }}
                 <form action="/auth/logout" method="GET">
                     <button type="submit">Log Out</button>

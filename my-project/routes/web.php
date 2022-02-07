@@ -29,7 +29,7 @@ Route::get('login',[PagesController::class,'login'])->name('login');
         //Route::post('crear',[PagesController::class,'crear'])->name('chollo.crear');
         //Route::get('editar/{id?}',[PagesController::class, 'editar'])->name('chollo.editar');
         //Route::put('editar/{id}', [ PagesController::class, 'actualizar' ]) -> name('chollo.actualizar');
-
+Route::get('chollo/{id}',[PagesController::class, 'individual']) ->name('chollo.individual');
 Route::get('registro',[UserActionController::class,'registro'])->name('chollo.registro');
 Route::post('crear',[UserActionController::class,'crear'])->name('chollo.crear');
 Route::get('editar/{id?}',[UserActionController::class, 'editar'])->name('chollo.editar');

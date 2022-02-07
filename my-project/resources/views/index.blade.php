@@ -13,7 +13,8 @@
     <div class="container chollito">
         <div class="imagen">
             <img src="{{asset('assets/img/'.$chollo->imagen)}}">
-            {{-- <p></p> --}}
+            <p>{{$chollo->User->name}}</p>
+            {{-- chollo->Clase(mayus importante)->campo --}}
             {{-- Aquí lo que hacemos es accedemos al objeto chollo, llamamos a la fucnion categorias y cogemos el campo categoria --}}
         </div>
         <div class="texto">

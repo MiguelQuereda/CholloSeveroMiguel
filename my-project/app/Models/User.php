@@ -51,7 +51,7 @@ class User extends Authenticatable
     {
         return $this -> hasMany(CholloSevero::class);
         /**
-         * $comentarios = Post::find(id?) -> comentarios;
+         * $comentarios = CholloSevero::find(id?) -> comentarios;
 
          *   foreach ($comentarios as $comentario) {
          *       // Lo que sea que hagamos con esos datos

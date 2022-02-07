@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function inicio(){
-        $chollos = CholloSevero::all();// -> 
+        //$chollos = CholloSevero::all();// -> 
         //$chollos= CholloSevero::paginate(); -> index linea 36, descomentar
-        //$chollos = CholloSevero::with("categorias")->get(); // -> 
+        $chollos = CholloSevero::with("user")->get(); // -> 
         return view('index', compact('chollos'));
     }
 

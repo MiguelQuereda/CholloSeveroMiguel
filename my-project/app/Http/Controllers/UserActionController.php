@@ -43,7 +43,8 @@ class UserActionController extends Controller
         $chollo -> puntuacion = $request -> puntuacion;
         $chollo -> precio = $request -> precio;
         $chollo -> precio_descuento = $request -> precio_descuento;
-        $chollo->imagen = "todavíano";
+        $chollo -> user_id = $request -> id_usuario;
+        $chollo -> imagen = "todavíano";
         if($chollo -> disponible == "true"){
             $respuesta = true;
         }else{

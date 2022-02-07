@@ -17,6 +17,7 @@
             @if (Auth::guest()) 
                 {{-- Si no estas logeado saldrá esto--}}
                     <a href={{route('login')}}><button type="submit">Log in</button></a>
+                    <a href={{route('register')}}><button type="submit">Register</button></a>
             @else
                 {{-- Si estas logeado saldrá esto--}}
                 {{ Auth::user()->name }}

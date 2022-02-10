@@ -44,11 +44,7 @@ class UserActionController extends Controller
         $chollo->nombre = $request->nombre;
         $chollo->descripcion = $request->descripcion;
         $chollo->url = $request->url;
-        $chollo->categoria = $request->categoria;
-        // Problema: como lo subo a la tabla pivote
-        // Pruebo a subirlo de forma normal y aún así sale en blanco la tabla pivote
-        // attach y detach 
-
+        $chollo->categoria = /*$request->categoria*/ "pendiente de cambiar";
         $chollo->puntuacion = $request->puntuacion;
         $chollo->precio = $request->precio;
         $chollo->precio_descuento = $request->precio_descuento;
@@ -62,12 +58,7 @@ class UserActionController extends Controller
         $chollo->disponible = $respuesta;
 
         $chollo->save();
-        $catgs = $request->categoria;
-        $cats = explode(",", $catgs);
-        foreach ($cats as $catg) {
-            $chollo->categorias()->attach($catg);
-            //$chollo->chollosevero()->attach($chollo->id);
-        }
+       
 
 
 
@@ -81,6 +72,13 @@ class UserActionController extends Controller
             $chollo->imagen = "cholloImgDefault.png";
         }
         $chollo->save();
+        $catgs = $request->categoria;
+        //$cats = explode(",", $catgs);
+        foreach ($catgs as $catg) {
+            $chollo->categorias()->attach($catg);
+            // Problema: Solo reconoce un único elemento, es decir, selecciona 3 pero solo reconoce el último
+            // Probar a hacerlo con html checked
+        }
 
         return back()->with('mensaje', 'Chollo agregado exitósamente');
     }

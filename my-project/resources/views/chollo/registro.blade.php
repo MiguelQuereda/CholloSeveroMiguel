@@ -84,18 +84,19 @@
       autofocus
       required
   >
-  <select name="categoria" multiple>
+  {{-- <select name="categorias" multiple> --}}
       {{-- Nueva incorporación y posible causa de fallos, en caso de que haya fallo, 
         también hay que ir a UserActionController, a la función registro y 
         ahí modificar para que no me devuelva categorias --}}
   @foreach ($categorias as $categoria)
-  <option
-  name="cat"
-  class="form-control mb-2"
-  value={{$categoria->id}}>{{$categoria->categoria}}</option>
+  <input
+  type="checkbox"
+  name="categoria[]"
+  
+  value={{$categoria->id}}><label>{{$categoria->categoria}}</label>
   @endforeach
-</select>
-<i>Para seleccionar más de una categoría, por favor, mantener pulsado ctrl y shift (mayus) mientras escoges las categorias</i>
+{{-- </select>  class="form-control mb-2"--}}
+{{-- <i>Para seleccionar más de una categoría, por favor, mantener pulsado ctrl y shift (mayus) mientras escoges las</i> --}}
 <br>
   {{-- <input
       type="text"

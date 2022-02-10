@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\CholloSevero;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,8 @@ class UserActionController extends Controller
         return view('chollo.editar', compact('chollo'));
       }
     public function registro(){
-        return view('chollo.registro');
+        $categorias = Categoria::all();
+        return view('chollo.registro', compact('categorias'));
     }
       public function crear(Request $request){
           
@@ -39,7 +41,7 @@ class UserActionController extends Controller
         $chollo -> nombre = $request -> nombre;
         $chollo -> descripcion = $request -> descripcion;
         $chollo -> url = $request -> url;
-        $chollo -> categoria = $request -> categoria;
+        $chollo -> categoria = "Campo en blanco, esto lo he de quitar luego";
         $chollo -> puntuacion = $request -> puntuacion;
         $chollo -> precio = $request -> precio;
         $chollo -> precio_descuento = $request -> precio_descuento;
@@ -84,7 +86,7 @@ class UserActionController extends Controller
         $cholloActualizar -> nombre = $request -> nombre;
         $cholloActualizar -> descripcion = $request -> descripcion;
         $cholloActualizar -> url = $request -> url;
-        $cholloActualizar -> categoria = $request -> categoria;
+        $cholloActualizar -> categoria = "Campo en blanco, esto lo he de quitar luego";
         $cholloActualizar -> puntuacion = $request -> puntuacion;
         $cholloActualizar -> precio = $request -> precio;
         $cholloActualizar -> precio_descuento = $request -> precio_descuento;

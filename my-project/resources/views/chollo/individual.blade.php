@@ -17,6 +17,7 @@
         <div class="col-6 txt">
            <div class="col-12 puntuacion"><h3> + {{$chollo->puntuacion}}º</h3></div>
            <div class="col-12 nombre"><h2>{{$chollo->nombre}}</h2></div>
+           <div class="col-12 nombre"><h3>{{$chollo->User->name}}</h3></div>
            <div class="col-12 descripcion"><p>{{$chollo->descripcion}}</p></div>
 
            <div class="precio">

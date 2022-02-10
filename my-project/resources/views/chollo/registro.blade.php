@@ -84,14 +84,28 @@
       autofocus
       required
   >
-  <input
+  <select name="categorias" multiple>
+      {{-- Nueva incorporación y posible causa de fallos, en caso de que haya fallo, 
+        también hay que ir a UserActionController, a la función registro y 
+        ahí modificar para que no me devuelva categorias --}}
+  @foreach ($categorias as $categoria)
+  <option
+  name="categoria"
+  placeholder={{$categoria->categoria}}
+  class="form-control mb-2"
+  value={{$categoria->id}}>{{$categoria->categoria}}</option>
+  @endforeach
+</select>
+<i>Para seleccionar más de una categoría, por favor, mantener pulsado ctrl y shift (mayus) mientras escoges las categorias</i>
+<br>
+  {{-- <input
       type="text"
       name="categoria"
       placeholder="Categoría del chollo"
       class="form-control mb-2"
       value=""
-      required
-  >
+      required > 
+      --}}
 
   
   <select name="disponible">

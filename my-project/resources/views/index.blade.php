@@ -14,6 +14,7 @@
         <div class="imagen">
             <img src="{{asset('assets/img/'.$chollo->imagen)}}">
             <p>{{$chollo->User->name}}</p>
+            <i>{{$chollo->categoria}}</i>
             {{-- chollo->Clase(mayus importante)->campo --}}
             {{-- Aquí lo que hacemos es accedemos al objeto chollo, llamamos a la fucnion categorias y cogemos el campo categoria --}}
         </div>

@@ -10,6 +10,8 @@ class Categoria extends Model
     use HasFactory;
 
     public function chollosevero(){
-        return $this->hasToMany(CholloSevero::class);
+        return $this->belongsToMany(CholloSevero::class);
     }
+
+    // INSERT INTO usuarios (nombre, apellidos) VALUES ('Juan','Garcia Pérez');
 }

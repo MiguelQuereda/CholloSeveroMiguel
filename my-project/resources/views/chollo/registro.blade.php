@@ -84,14 +84,13 @@
       autofocus
       required
   >
-  <select name="categorias" multiple>
+  <select name="categoria" multiple>
       {{-- Nueva incorporación y posible causa de fallos, en caso de que haya fallo, 
         también hay que ir a UserActionController, a la función registro y 
         ahí modificar para que no me devuelva categorias --}}
   @foreach ($categorias as $categoria)
   <option
-  name="categoria"
-  placeholder={{$categoria->categoria}}
+  name="cat"
   class="form-control mb-2"
   value={{$categoria->id}}>{{$categoria->categoria}}</option>
   @endforeach

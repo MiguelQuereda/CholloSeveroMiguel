@@ -13,10 +13,10 @@ class CreateCategoriaCholloseveroTable extends Migration
      */
     public function up()
     {
-        Schema::create('categoria_chollosevero', function (Blueprint $table) {
+        Schema::create('categoria_chollo_severo', function (Blueprint $table) {
         $table->bigIncrements('id');
         $table->unsignedInteger('categoria_id');
-        $table->unsignedInteger('chollosevero_id');
+        $table->unsignedInteger('chollo_severo_id');
         $table->timestamps();
 
         });

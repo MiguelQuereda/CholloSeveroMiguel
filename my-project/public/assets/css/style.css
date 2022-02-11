@@ -142,7 +142,7 @@ main .boton:hover a {
 
 .contenechollos {
 	display: flex;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	margin: 50px 0;
 }
 
@@ -154,6 +154,7 @@ main .boton:hover a {
 	text-align: center;
 	border: 2px solid black;
 	padding: 40px;
+	margin: 10px;
 }
 
 .chollito .imagen img {

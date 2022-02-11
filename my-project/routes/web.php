@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\RestController;
 use App\Http\Controllers\UserActionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/auth/logout', [UserActionController::class, 'logout'])->name('logout');
+
+Route::get('/chollosAPI', [ RestController::class, 'index' ]);
